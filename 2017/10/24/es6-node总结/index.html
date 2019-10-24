@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>Archives: 2019 | Hexo</title>
+  <title>es6/node总结 | Hexo</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -59,7 +59,7 @@
 </head>
 
 <!--
-<body class="home-template">
+<body class="post-template">
 -->
 <body id="index" class="lightnav animsition">
 
@@ -167,78 +167,209 @@
         <!-- ============================ Header & Logo bar =========================== -->
 
 
-      <!-- ============================ Hero Image =========================== -->
-
-<section id="hero" class="scrollme">
-    <div class="container-fluid element-img" style="background: url(/img/bg_img.jpg) no-repeat center center fixed;background-size: cover">
-        <div class="row">
-            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
-                <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
-                    <div>
-                        
-                        <h2>YOU'VE MADE A <span>BRAVE</span> DECISION, WELCOME.</h2>
-                        <p></p>
-                        
-                        <h2></h2>
-                        <p>每一个不曾起舞的日子都是对生命的辜负。</p>
-                        
-
-                    </div>
-                </div>
-            </div>
-            <!-- // .col-md-12 -->
-        </div>
-        <div class="herofade beige-dk"></div>
-    </div>
-</section>
-
-<!-- Height spacing helper -->
-<div class="heightblock"></div>
-<!-- // End height spacing helper -->
-
-<!-- ============================ END Hero Image =========================== -->
-
-
-
-
-<section id="services">
+      
+<section id="intro">
     <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="row boxes">
-                    
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2019/10/24/sx/"></a></h4>
-                            
-                            <p><time datetime="2019-10-24T03:48:56.778Z"><a href="/2019/10/24/sx/">2019-10-24</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2019/09/20/hello-world/">Hello World</a></h4>
-                            
-                            <p><time datetime="2019-09-20T07:59:10.976Z"><a href="/2019/09/20/hello-world/">2019-09-20</a></time></p>
-                        </div>
-                    
-                </div>
-            </div>    
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2017-10-24T03:51:55.000Z" itemprop="datePublished">
+          2017-10-24
+      </time>
+    
+    
+    | 
+    <a href='/tags/面试经常会出现哦/'>面试经常会出现哦~~</a>
+    
+    
+</span>
+                <h1>es6/node总结</h1>
+            </div>
         </div>
-    </div>
-</section> 
+        <div class="col-md-8 col-md-offset-2">
+      		<h2 id="es6"><a href="#es6" class="headerlink" title="es6"></a>es6</h2><ul>
+<li><p>箭头函数中this指向</p>
+<p>箭头函数内部是可以用this的，但这个this不是他自己的，而是这个函数在定义时所处的对象</p>
+</li>
+<li><p>let/const/var的区别</p>
+<p>let</p>
+<ul>
+<li>不能重复定义</li>
+<li>没有变量提升（var定义的变量是有变量提升的），必须<code>先定义再使用</code></li>
+<li>全局变量不会附加到window对象的属性中</li>
+<li>具有块级作用域</li>
+<li>可以嵌套继承</li>
+</ul>
+<p>const</p>
+<p>​    是用来定义常量的，如果把一个对象声明一个常量，它的属性是可以改的，地址不能改</p>
+</li>
+<li><p>解构赋值(数组,对象)–重要的</p>
+<p>数组规则：</p>
+<ul>
+<li>赋值符号左右两边都是数组，把右边的数组按下标从小到大取出来，放入左边的数组中。</li>
+<li>如果左边的变量并没有分配到某一个值：<ul>
+<li>有默认值，使用其默认值。</li>
+<li>无默认值，其值是undefined</li>
+</ul>
+</li>
+</ul>
+<p>对象规则：</p>
+<p>对于左边的变量名</p>
+<ul>
+<li>如果在右边的对象中能找出与左边属性名相同的项，则把右边的属性值赋值给左边的变量名。</li>
+<li>如果找不到，则看是否有使用默认值，有默认值就使用默认值，没有就是undefined。</li>
+</ul>
+<p>let {变量名1=默认值1，变量名2=默认值2} = {“属性名1”：属性值1,”属性名2”：属性值2,…}</p>
+</li>
+<li><p>array对象的拓展</p>
+<p>1.”…数组”,把数组中的元素一项项展开,把一个整体的数组拆开成单个元素</p>
+<p>​            应用1:数组拷贝</p>
+<p>​            应用2:数组合并</p>
+<p>​            应用3:Math.max()</p>
+<p>2.array.isArray();判断是不是数组</p>
+<p>3.array.from(东西);把一个东西转成数组(东西指的是伪数组或arguments)</p>
+<p>4.array.find(function(item,index,self){})从数组中找出我们符合条件的第一个元素</p>
+<p>5.array.findindex()从数组中找出我们符合条件的第一个下标</p>
+<p>元素找不到undefined,下标找不到-1</p>
+</li>
+<li><p>class类/实现继承</p>
+<p>语法：</p>
+<p>​    class Father {}</p>
+<p>​    class Son extends Father{}</p>
+</li>
+<li><p>set对象拓展</p>
+<p>成员的值是唯一的，没有重复的。</p>
+<p>成员方法</p>
+<p>size：属性，获取 <code>set</code> 中成员的个数，相当于数组中的 <code>length</code><br>add(value)：添加某个值，返回 Set 结构本身。<br>delete(value)：删除某个值，返回一个布尔值，表示删除是否成功。<br>has(value)：返回一个布尔值，表示该值是否为Set的成员。<br>clear()：清除所有成员，没有返回值。<br> forEach:遍历</p>
+</li>
+<li><p>新增的数据类型以及含义</p>
+<p>1.Set 类似于数组，但数组可以允许元素重复，Set 不允许元素重复  </p>
+<p>2.Map 类似于对象，但普通对象的 key 必须是字符串或者数字，而 Map 的 key 可以是任何数据类型  </p>
+</li>
+<li><p>async/await的基本含义</p>
+<p>async 会将其后的函数（函数表达式或 Lambda）的返回值封装成一个<br>Promise 对象</p>
+<p>await 会等待这个Promise 完成，并将其 resolve 的结果返回出来。</p>
+</li>
+<li><p>Promise的基本使用以及几个状态常见的含义—重要的</p>
+<p>执行一些异步的操作，在某个时间节点去调用resolve（），reject（）</p>
+<p>pending：待定（默认）</p>
+<p>resolved：已经解决的</p>
+<p>rejected：已拒绝的</p>
+</li>
+</ul>
+<h2 id="node-js"><a href="#node-js" class="headerlink" title="node.js"></a>node.js</h2><ul>
+<li><p>npm是什么?如何去发布一个自己的包</p>
+<p>管理代码的包。</p>
+<p>1.注册npm账户</p>
+<p>2.选择目标文件夹，cd进去</p>
+<p>3.npm init</p>
+<p>4.配置完会生成package.json文件，然后写包的代码</p>
+<p>5.发布包 npm publish 包名</p>
+</li>
+<li><p>除了npm还是用过其它的包管理工具吗?</p>
+<p>Yarn,bower,webpack,gulp,grunt</p>
+</li>
+<li><p>node中的模块是什么,什么是模块加载机制?</p>
+<p>每个模块都是一个独立的文件。每个模块都可以完成特定的功能，我们需要时就去引入它们，并调用。不需要时也不需要管它。</p>
+<p>分为 ：核心模块 自定义模块 第三方模块</p>
+<p>模块加载机制：先看一下缓存中是否已经引入过这个模块，如果有则用缓存中的，如果没有则新引入这个模块并放入缓存中。如果引入的模块只写了模块名，那么先看一下是不是核心模块，不是核心模块就到node_modules文件夹里面看看有没有,如果也没有就报错.如果引入的模块名是相对路径,但没有写具体的后缀名的话,那么会先尝试找找有没有.js后缀的,如果没有再看看有没有.json的,还没有就继续尝试别的后缀,如果都没有就报错</p>
+</li>
+<li><p>简述一下什么是事件循环 <strong>eventloop</strong>  </p>
+<p>js是单线程 所以所有的任务都要排队执行，任务分为两种：宏任务、微任务</p>
+<ol>
+<li>执行宏任务队列中第一个任务，执行完后移除它</li>
+<li>执行所有的微任务，执行完后移除它们</li>
+<li>执行下一轮宏任务（重复步骤2）</li>
+</ol>
+</li>
+<li><p>什么是事件驱动/和非阻塞I/O模型?</p>
+<ul>
+<li>事件驱动就是当事件发生时候才会调用的回调函数，这种函数的执行方式叫做事件驱动。</li>
+<li>非阻塞I/o是程序执行过程中，i/o操作不会阻塞程序的执行，也就是在i/o操作的同时，继续执行其他代码。</li>
+</ul>
+</li>
+<li><p>简单描述一下为什么会产生跨域问题,该如何解决?</p>
+<p>不同源的ajax请求</p>
+<p>jsonp或者cors</p>
+</li>
+<li><p>jsonp的原理是什么?</p>
+<p>script 标签 src 属性中的链接却可以访问跨域的js脚本，利用这个特性，服务端不再返回JSON格式的数据，而是返回一段调用某个函数的js代码，在src中进行了调用，这样实现了跨域</p>
+</li>
+<li><p>express是什么?还使用过类似的东西吗?</p>
+<p>Express 是一个基于 Node.js 平台的极简、灵活的 web 应用开发框架，它提供一系列强大的特性，帮助你创建各种 Web 和移动设备应用。</p>
+<p>Koa,Meteor,socketstream</p>
+</li>
+<li><p>使用node.js还能干些什么?</p>
+<p>开发动态网站和WEB应用</p>
+</li>
+</ul>
 
-<section id="statement">
-    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
-        <div class="row">
-            <p>虽然还没想好写点什么，但是总觉得这里放句话比较和谐。</p>
+            <div class="clearfix"></div>
+            <hr class="nogutter">
         </div>
+        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
+    
+    <a class="pull-left" href="/2019/09/20/hello-world/" style="float: left;">
+        ← Hello World
+    </a>
+    
+    
+</nav>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
+  /**
+   * 搜狐畅言
+   */
+
+  /*
+  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
+
+  window.onload = function () {
+    (function () {
+      var appid = 'cytXXXX';
+      var conf = 'prod_xxxxxxxxxxxxxxxxx';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var loadJs = function (d, a, id) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("charset", "UTF-8");
+        b.setAttribute("src", d);
+        if (id) {
+          b.setAttribute("id", id);
+        }
+        if (typeof a === "function") {
+          if (window.attachEvent) {
+            b.onreadystatechange = function () {
+              var e = b.readyState;
+              if (e === "loaded" || e === "complete") {
+                b.onreadystatechange = null;
+                a()
+              }
+            }
+          } else {
+            b.onload = a
+          }
+        }
+        c.appendChild(b)
+      };
+
+      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+        window.changyan.api.config({
+          appid: appid,
+          conf: conf
+        })
+      });
+    })();
+  }
+  */
+
+</script>
+</div>
     </div>
 </section>
+
+
       
 <!-- ============================ Footer =========================== -->
 
